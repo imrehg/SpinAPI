@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>spinapi</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="20050718;12062739">
+	<META NAME="CHANGED" CONTENT="20081111;16455673">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><FONT SIZE=5><BR><BR>Using the spinapi to control
+SpinCore Technologies, Inc. products</FONT></P>
+<CENTER>
+	<TABLE BORDER=0 CELLPADDING=2 CELLSPACING=2>
+		<TR>
+			<TD>
+				<P><BR>&nbsp;&nbsp;&nbsp; This document describes how to
+				interface with the spinapi control library, which is used to
+				control all of our products. The spinapi control library is a
+				standard windows .dll which can be accessed from a wide variety
+				of programming environments, such as C/C++ programs, etc.</P>
+				<P><FONT SIZE=4>Accessing spinapi from a C/C++ program</FONT></P>
+				<P>&nbsp;&nbsp;&nbsp; This section describes the basic steps
+				needed to get your C/C++ program to work with spinapi.&nbsp;
+				Virtually any C/C++ compiler/programming environment is
+				compatible, feel free to use your favorite.&nbsp; If you do not
+				currently have a C/C++ compiler, there are several high quality
+				compilers available for free download on the internet, see below
+				for some recommendations.</P>
+				<P>&nbsp;Four files are necessary to be able to control your
+				board using this approach.</P>
+				<P STYLE="margin-left: 0.42in"><I>.c/.cpp file</I>: This is the
+				program itself. Several example C programs are included for each
+				of our different products.<BR><BR><I>spinapi.h:</I> The spinapi
+				header file. This contains the function declarations and
+				definitions which are needed to access the spinapi functions.
+				This should be #included in all files which use the spinapi
+				functions. (#include &quot;spinapi.h&quot;)</P>
+				<P STYLE="margin-left: 0.42in"><I>Import library:</I> This
+				library must be linked with your program so it will know to look
+				inside the spinapi.dll file to find the API functions. There are
+				several different file formats for import libraries, so we have
+				provided three different ones so that all compilers can be
+				supported. Choose whichever is appropriate for the compiler you
+				are using.</P>
+				<P STYLE="margin-left: 0.42in">&nbsp;&nbsp;&nbsp; libspinapi.a:
+				GCC based compilers (such as MinGW)</P>
+				<P><B><BR></B><BR><B>General Tips</B></P>
+				<UL>
+					<LI><P STYLE="margin-bottom: 0in">We highly recommend you check
+					the result of the <I>pb_get_version()</I> function at the
+					beginning of each program. This way, if you upgrade to a newer
+					version of spinapi, you can check to make sure your program is
+					not accidentally still using the older version of the library. 
+					</P>
+					<LI><P STYLE="margin-bottom: 0in">Checking the return value of
+					all spinapi functions is highly recommended. This way you will
+					be able to detect common errors (such as entering too short a
+					time for an instruction length, etc.)</P>
+					<LI><P>If you encounter difficulties controlling your board with
+					spinapi, you can enable debugging features by calling
+					<I>pb_set_debug(1)</I> on the first line of your program. This
+					will create file called log.txt when you run your program, which
+					can then be emailed to us along with a description of the
+					problem to help us solve your problem as quickly as possible.</P>
+				</UL>
+				<P><B>Contact Info</B></P>
+				<P STYLE="margin-left: 0.42in">SpinCore Technologies, Inc.&nbsp;
+				<BR>4623 NW 53rd Avenue, SUITE 5&nbsp; <BR>Gainesville, FL 32653&nbsp;
+				<BR>USA&nbsp; <BR><BR>Phone:&nbsp;&nbsp;&nbsp; (USA)
+				352-271-7383&nbsp; <BR>Fax:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (USA)
+				352-371-8679&nbsp; <BR>Internet: http://www.spincore.com</P>
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

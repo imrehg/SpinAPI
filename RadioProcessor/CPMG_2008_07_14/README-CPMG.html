@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE"
+ content="text/html; charset=windows-1252">
+  <title>RadioProcessor CPMG</title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.4  (Win32)">
+  <meta name="CREATED" content="20050819;12521890">
+  <meta name="CHANGED" content="16010101;0">
+</head>
+<body dir="ltr" lang="en-US">
+<div style="margin-left: 80px;"><br>
+</div>
+<table style="text-align: left; width: 80%;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <p style="text-align: center; margin-left: 80px;">&nbsp;&nbsp; <br>
+      </p>
+      <p style="text-align: center; margin-left: 40px;"><img alt=""
+ src="spincore-logo.gif" style="width: 277px; height: 184px;"><br>
+      </p>
+      <p style="margin-left: 40px;"><br>
+This directory contains a sample program that can perform CPMG NMR
+experiments using the RadioProcessor. <br>
+      <br>
+The included pictures
+are of a CPMG experiment conducted on household cooking oil using a
+10.8MHz permanent magnet. <br>
+      <br>
+      <br>
+      <img src="echo_straight.gif" name="Graphic1" align="bottom"
+ border="0" height="213" width="1100"><br>
+      <br>
+      <b>Fig
+1. </b><br>
+      <br>
+This shows what the signal looks like when capturing
+data continuously during a CPMG experiment. The large spikes seen
+between the <span lang="en-US">echoes</span> are the 180 degree
+pulses being applied.<br>
+      <br>
+      <img src="echo_tops.gif" name="Graphic2" align="bottom" border="0"
+ height="297" width="1073"><br>
+      <b>Fig
+2.</b><br>
+      <br>
+It is also possible to capture only a small number of points around the
+tops of the <span lang="en-US">echoes.</span>
+This figure shows the same experiment as above, however instead of
+capturing data continuously throughout the experiment, only 32 points
+at the peak of each echo is captured. This allows more <span
+ lang="en-US">echoes</span>
+to be captured by not storing unwanted data. The number of points
+captured per peak can be reduced to as little as 1 point.<br>
+      <br>
+Figure
+3 below shows the pulse sequence used by the RadioProcessor to
+perform this experiment. Each vertical line is a new
+instruction, and the names of the delays used are shown with arrows.
+The CPMG program included in this directory will accept command line
+      <span lang="en-US">parameters</span> which can be used to specify
+the
+values used for each of the pulse program parameters. <br>
+      <br>
+      <img style="width: 744px; height: 445px;"
+ alt="CPMG Timing Sequence" src="CPMG2.JPG"><br>
+      <b>Fig
+3</b><br>
+      <br>
+      <span lang="en-US">Shown</span> in this figure is what
+the RF excitation pulse will look like, as well as what the acquired
+baseband data will look like. The tx_enable and scan_trigger signals
+are both internal signals used to control the timing of the
+experiment. Note that when the CPMG program is configured to <span
+ lang="en-US">acquire</span>
+data in a continuous scan, the scan_trigger signal is only enabled
+after the 90 degree pulse and not after the 180 degree pulses.<br>
+      </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The CPMG
+executable takes the following arguments as inputs:<br>
+      <table
+ style="text-align: left; width: 100%; margin-left: 40px; margin-right: auto;"
+ border="1" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top; text-align: center;"><br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">1<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">2<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">3<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">4<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">5<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">6<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">7<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">8<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">9<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">10<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">11<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">12<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">13<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">14<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">CPMG</td>
+            <td style="vertical-align: top; text-align: center;">SF<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">SW<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">P2_time<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">ringdown_time<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">P2_phase<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">P1_phase<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">tau<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">echo_points<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">echo_loops<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">num_scans<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">fnam<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">bypass_fir<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">adc_freq<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">wait_time<br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; text-align: center;"><br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">MHz<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">kHz<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">us<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">us<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">degrees<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">degrees<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">us<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">#<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">#<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">#<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;"><br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">0 or 1<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">MHz<br>
+            </td>
+            <td style="vertical-align: top; text-align: center;">s<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-left: 80px;"><br>
+      </div>
+      <div style="margin-left: 40px;"><font face="courier">SF </font>-
+Spectrometer
+frequency, in MHz<br>
+      <font face="courier">SW </font>- Desired
+baseband spectral width, in kHz<br>
+      <font face="courier new, courier, monospace">P2_time</font>
+- Pulse length of 90 degree pulse, in us<br>
+      <font face="courier new, courier, monospace">ringdown_time</font>
+-&nbsp; <span lang="en-US">Ring down</span> time after 90 degree
+pulse, in us<br>
+      <font face="courier">P2_phase</font> - Phase of 90
+degree pulse<br>
+      <font face="courier new, courier, monospace">P1_phase</font>
+- Phase of 180 degree pulses<br>
+      <font face="courier new, courier, monospace">tau</font>
+- 2*tau is the time between 180 degree pulses<br>
+      <font face="courier new, courier, monospace">echo_points</font>
+- Number of points to capture at the top of each echo. Set to 0 to do
+a continuous scan (like Fig. 1)<br>
+      <font face="courier new, courier, monospace">echo_loops</font>
+- Number of <span lang="en-US">echoes</span> to produce<br>
+      <font face="courier new, courier, monospace">num_scans</font>
+- Number of times to repeat the scan (and average the data)<br>
+      <font face="courier new, courier, monospace">fname</font>
+-&nbsp; Filename to store data to<br>
+      <font face="courier">bypass_fir</font>
+- A 1 bypasses the signal around the FIR filter, or 0 to use it. See
+manual for details on this<br>
+      <font face="courier">adc_freq</font> -
+Clock frequency of the board, in MHz<br>
+wait_time - Time to allow
+sample to relax after each scan (in seconds)<br>
+      <br>
+There are a few
+parameters in Figure 3 not specified on the command line. These are
+calculated as:<br>
+      <br>
+      <font face="courier new, courier, monospace">P1_time</font>:
+2*<font face="courier new, courier, monospace">P2_time</font><br>
+      <font face="courier new, courier, monospace">top_time</font>:
+this is calculated based on <font
+ face="courier new, courier, monospace">echo_points</font>
+and the <font face="courier new, courier, monospace">SW</font>
+used<br>
+      <font face="courier new, courier, monospace">P2_after1</font>:
+2*<font face="courier new, courier, monospace">tau</font> -
+      <font face="courier new, courier, monospace">top_time</font>/2<br>
+      <font face="courier new, courier, monospace">P2_after2</font>:
+2*<font face="courier new, courier, monospace">tau</font> +
+      <font face="courier new, courier, monospace">top_time</font>/2<br>
+      <br>
+A
+recommended approach to performing CPMG experiments is to initially
+set <font face="courier new, courier, monospace">echo_points</font>
+to 0 so that data is acquired continuously. This is the easiest way
+to ensure the timing parameters have been specified correctly. Once
+this has been accomplished, the user can experiment with capturing
+only the tops of the <span lang="en-US">echoes. Note: For this
+experiment, the spectrometer frequency must be precisely on resonance,
+and the P2_time must be the exact 90 degree pulse width.</span><br>
+      <br>
+      </div>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p></p>
+</body>
+</html>

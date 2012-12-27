@@ -1,0 +1,1 @@
+This directory contains the necessary Windows DDK headers which are needed to compile spinapi. They are included here because they are not part of the standard mingw distribution.

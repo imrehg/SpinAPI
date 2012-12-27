@@ -1,0 +1,7 @@
+#!/bin/bash
+# simple script  to compile all c files in this folder against SpinAPI
+SPINAPI_SRC=../spinapi_src
+
+for i in *.c; do 
+gcc $i -L${SPINAPI_SRC} -I${SPINAPI_SRC} -lspinapi -lusb -ldl -lm -o $(echo $i|cut -d "." -f 1)
+done
